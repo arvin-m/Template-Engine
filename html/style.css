@@ -1,0 +1,31 @@
+body{
+    background-color:#76d5ad;
+}
+
+#nav-text{
+
+    font-size: 38px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+#nav-icon{
+    font-size: 46px
+}
+
+#nav{
+background-color:#0ca96f99;
+padding: 25px;
+
+}
+.container-fluid{
+    padding-top: 20px;
+}
+.fa-user-tie{
+    font-size: 40px;
+}
+.fa-user-cog{
+    font-size: 40px;
+}
+.fa-user-graduate{
+    font-size: 40px;
+}
+
