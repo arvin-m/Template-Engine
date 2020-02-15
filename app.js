@@ -35,7 +35,7 @@ function appBody() {
                 message:c.cyan("What is your manager's id? "),
                 validate: answer => {
 
-                    if (answer === Number || answer > 0) {
+                    if (answer > 0) {
                         return true;
                     }
                     return c.red.italic("Please enter a NUMBER and GRATER than zero.");
@@ -57,20 +57,21 @@ function appBody() {
                 type: "number",
                 name: "officeNumber",
                 message: c.cyan("What is your manager's office number ? "),
-                // validate: officeNum => {
+                validate: answer => {
 
-                //   if (officeNum === Number ) {
-                //     return true;
-                //   }
-                //   return "Please enter a NUMBER!";
-                // }
+                    if (answer > 0) {
+                        return true;
+                    }
+
+                    return c.red.italic("Please enter a NUMBER and GRATER than zero.");
+                }
             },
 
 
             ])
             .then(answers => {
                 const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
-                console.log(manager);
+                // console.log(manager);
                 teamMember.push(manager);
                 createTeamMember()
 
@@ -169,7 +170,7 @@ function appBody() {
             ])
             .then(answers => {
                 const engineer = new Engineer(answers.eanageerName, answers.eanageerId, answers.eanageerEmail, answers.eanageerGitHub);
-                console.log(engineer);
+                // console.log(engineer);
                 teamMember.push(engineer);
                 createTeamMember();
 
@@ -236,7 +237,7 @@ function appBody() {
             ])
             .then(answers => {
                 const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
-                console.log(intern);
+                // console.log(intern);
                 teamMember.push(intern);
                 createTeamMember();
 
@@ -352,7 +353,7 @@ function appBody() {
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
                 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <!-- CSS File -->
-            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="./style.css">
             <!-- google font -->
             <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
             <!-- Font Awsome -->
