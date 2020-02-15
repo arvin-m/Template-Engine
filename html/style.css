@@ -16,6 +16,16 @@ background-color:#0ca96f99;
 padding: 25px;
 
 }
+.col-sm-3{
+
+    padding-right: 0px;
+}
+.card-header{
+    color: #00bcd4;
+}
+span{
+    color: #00bcd4;
+}
 .container-fluid{
     padding-top: 20px;
 }

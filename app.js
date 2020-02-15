@@ -1,6 +1,8 @@
 
 const inquirer = require("inquirer");
 const fs = require("fs");
+const c=require("ansi-colors")
+// const internCard=require("html/internHTML.js");
 
 const Manager = require("./lab/manager.js");
 const Engineer = require("./lab/engineer.js");
@@ -11,7 +13,7 @@ const teamMember=[]
 
 
 function appBody() {
-    console.log("Please create Your Team ")
+    console.log(c.green("++++++ Please create Your Team ++++++ "))
 
     function createanager() {
 
@@ -19,42 +21,42 @@ function appBody() {
             .prompt([{
                 type: "input",
                 name: "managerName",
-                message: "What is your manager's name? ",
+                message:c.cyan("What is your manager's name? ") ,
                 validate: answer => {
                     if (answer !== "") {
                         return true;
                     }
-                    return "Please enter valid string character.";
+                    return c.red.italic("Please enter valid string character.");
                 }
             },
             {
                 type: "number",
                 name: "managerId",
-                message: "What is your manager's id? ",
+                message:c.cyan("What is your manager's id? "),
                 validate: answer => {
 
                     if (answer === Number || answer > 0) {
                         return true;
                     }
-                    return "Please enter a NUMBER and GRATER than zero.";
+                    return c.red.italic("Please enter a NUMBER and GRATER than zero.");
                 }
             },
             {
                 type: "email",
                 name: "managerEmail",
-                message: "What is your manager's VALID Email ? ",
+                message: c.cyan("What is your manager's VALID Email ? "),
                 validate: Email => {
 
                     if (Email !== "") {
                         return true;
                     }
-                    return "Please enter a VALID Email address!";
+                    return c.red.italic("Please enter a VALID Email address!");
                 }
             },
             {
                 type: "number",
                 name: "officeNumber",
-                message: "What is your manager's office number ? ",
+                message: c.cyan("What is your manager's office number ? "),
                 // validate: officeNum => {
 
                 //   if (officeNum === Number ) {
@@ -85,8 +87,8 @@ function appBody() {
                 {
                     type: "list",
                     name: "createTeamMember",
-                    message: "Wich type of team member would you like to add ? ",
-                    choices: [
+                    message: c.cyan("Wich type of team member would you like to add ? "),
+                    choices:[
                         "Engineer",
                         "Intern",
                         "I don't want to add any more team members"
@@ -120,48 +122,48 @@ function appBody() {
                 {
                     type: "input",
                     name: "eanageerName",
-                    message: "What is your Eanageer's name? ",
+                    message: c.cyan("What is your Eanageer's name? "),
                     validate: answer => {
                         if (answer !== "") {
                             return true;
                         }
-                        return "Please enter valid string character.";
+                        return c.red.italic("Please enter valid string character.");
                     }
                 },
                 {
                     type: "number",
                     name: "eanageerId",
-                    message: "What is your Eanageer's id? ",
+                    message: c.cyan("What is your Eanageer's id? "),
                     validate: answer => {
 
                         if (answer === Number || answer > 0) {
                             return true;
                         }
-                        return "Please enter a NUMBER and GRATER than zero.";
+                        return c.red.italic("Please enter a NUMBER and GRATER than zero.");
                     }
                 },
                 {
                     type: "email",
                     name: "eanageerEmail",
-                    message: "What is your Eanageer's VALID Email ? ",
+                    message: c.cyan("What is your Eanageer's VALID Email ? "),
                     validate: Email => {
 
                         if (Email !== "") {
                             return true;
                         }
-                        return "Please enter a VALID Email address!";
+                        return c.red.italic("Please enter a VALID Email address!");
                     }
                 },
                 {
                     type: "input",
                     name: "eanageerGitHub",
-                    message: "What is your Eanageer's GitHub user name ? ",
+                    message: c.cyan("What is your Eanageer's GitHub user name ? "),
                     validate: github => {
 
                         if (github !== "") {
                             return true;
                         }
-                        return "Please enter the GitHub user name!";
+                        return c.red.italic("Please enter the GitHub user name!");
                     }
                 },
             ])
@@ -187,63 +189,59 @@ function appBody() {
                 {
                     type: "input",
                     name: "internName",
-                    message: "What is your intern's name? ",
+                    message: c.cyan("What is your intern's name? "),
                     validate: answer => {
                         if (answer !== "") {
                             return true;
                         }
-                        return "Please enter valid string character.";
+                        return c.red.italic("Please enter valid string character.");
                     }
                 },
                 {
                     type: "number",
                     name: "internId",
-                    message: "What is your intern's id? ",
+                    message: c.cyan("What is your intern's id? "),
                     validate: answer => {
 
                         if (answer === Number || answer > 0) {
                             return true;
                         }
-                        return "Please enter a NUMBER and GRATER than zero.";
+                        return c.red.italic("Please enter a NUMBER and GRATER than zero.");
                     }
                 },
                 {
                     type: "email",
                     name: "internEmail",
-                    message: "What is your intern's VALID Email ? ",
+                    message: c.cyan("What is your intern's VALID Email ? "),
                     validate: Email => {
 
                         if (Email !== "") {
                             return true;
                         }
-                        return "Please enter a VALID Email address!";
+                        return c.red.italic("Please enter a VALID Email address!");
                     }
                 },
                 {
                     type: "input",
                     name: "internSchool",
-                    message: "What is your intern's school name ? ",
+                    message: c.cyan("What is your intern's school name ? "),
                     validate: school => {
 
                         if (school !== "") {
                             return true;
                         }
-                        return "Please enter the school  name!";
+                        return c.red.italic("Please enter the school  name!");
                     }
                 },
             ])
             .then(answers => {
                 const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
                 console.log(intern);
+                teamMember.push(intern);
                 createTeamMember();
 
 
             })
-
-
-
-
-
 
 
 
@@ -256,7 +254,7 @@ function appBody() {
            
             if(teamMember[i].officeNumber){
                 const managerCrad=`
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <!-- Manager Card -->
             <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                 <div class="card-header">Header</div>
@@ -284,7 +282,7 @@ function appBody() {
             }
             if(teamMember[i].GitHub){
                 const engineerCard =`<!-- Engineer Card -->
-        <div class="col-sm-4">
+        <div class="col-sm-3">
         
             <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                 <div class="card-header">Header</div>
@@ -310,13 +308,38 @@ function appBody() {
         cardToDisplay.push(engineerCard);
 
             }
+            if(teamMember[i].school){
+                const internCard =` <!-- Intern card -->
+                    <div class="col-sm-3">
+                        <!-- Manager Card -->
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">${teamMember[i].name}</h5>
+                                <p class="card-text "><span class="fas fa-user-graduate"> </span> Intern</p>
+
+                                <ul class="list-group list-group-flush   ">
+                                    <li class="list-group-item text-white bg-dark mb-3 border border-white">ID : <span>${teamMember[i].id}</span>
+                                    </li>
+                                    <li class="list-group-item text-white bg-dark mb-3 border border-white">Email : <span>${teamMember[i].email}</span>
+                                    </li>
+                                    <li class="list-group-item text-white bg-dark mb-3 border border-white">School : <span>${teamMember[i].school}</span></li>
+                                </ul>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>`;
+                cardToDisplay.push(internCard);
+                
+                
+            }
+            
 
         }
-        
-
-        
-
-        
+       
 
         const frameHtml=`<!DOCTYPE html>
         <html lang="en">
@@ -367,7 +390,7 @@ function appBody() {
         
         </html>`
 
-        fs.writeFile("./html/test.html",frameHtml,function(err){
+        fs.writeFile("./output/employee.html",frameHtml,function(err){
             console.log(err);
 
 
@@ -378,18 +401,10 @@ function appBody() {
 
     }
 
-
-
-
-
     createanager()
 
 
-
-
-
 }
-
 
 
 appBody();
