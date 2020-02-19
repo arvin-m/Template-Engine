@@ -5,6 +5,9 @@ class Engineer extends Employee {
     super(name, id, email);
     this.GitHub = getGitHub;
   }
+  getRole() {
+    return "Engineer";
+  }
 
 }
 

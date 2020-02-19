@@ -1,6 +1,3 @@
-
-
-
   module.exports =` <!-- Intern card -->
   <div class="col-sm-4">
     <!-- Manager Card -->

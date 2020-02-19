@@ -261,7 +261,7 @@ function appBody() {
                 <div class="card-header">Header</div>
                 <div class="card-body">
                     <h5 class="card-title">${teamMember[i].name}</h5>
-                    <p class="card-text "><span class="fas fa-user-tie"> </span> Manager</p>
+                    <p class="card-text "><span class="fas fa-user-tie"> </span> ${teamMember[i].getRole()} </p>
 
                     <ul class="list-group list-group-flush   ">
                         <li class="list-group-item text-white bg-dark mb-3 border border-white">ID :<span>${teamMember[i].id}</span>
@@ -289,7 +289,7 @@ function appBody() {
                 <div class="card-header">Header</div>
                 <div class="card-body">
                     <h5 class="card-title">${teamMember[i].name}</h5>
-                    <p class="card-text "><span class="fas fa-user-cog"> </span> Engineer</p>
+                    <p class="card-text "><span class="fas fa-user-cog"> </span>  ${teamMember[i].getRole()} </p>
         
                     <ul class="list-group list-group-flush   ">
                         <li class="list-group-item text-white bg-dark mb-3 border border-white">ID :<span>${teamMember[i].id}</span>
@@ -317,7 +317,7 @@ function appBody() {
                             <div class="card-header">Header</div>
                             <div class="card-body">
                                 <h5 class="card-title">${teamMember[i].name}</h5>
-                                <p class="card-text "><span class="fas fa-user-graduate"> </span> Intern</p>
+                                <p class="card-text "><span class="fas fa-user-graduate"> </span>  ${teamMember[i].getRole()} </p>
 
                                 <ul class="list-group list-group-flush   ">
                                     <li class="list-group-item text-white bg-dark mb-3 border border-white">ID : <span>${teamMember[i].id}</span>
@@ -392,7 +392,7 @@ function appBody() {
         </html>`
 
         fs.writeFile("./output/employee.html",frameHtml,function(err){
-            console.log(err);
+            // console.log(err);
 
 
         })
