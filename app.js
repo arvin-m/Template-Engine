@@ -67,7 +67,6 @@ function appBody() {
                 }
             },
 
-
             ])
             .then(answers => {
                 const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
@@ -77,11 +76,8 @@ function appBody() {
 
             });
 
-
-
     }
 
-    // ------------------------------------------------------------------------------------
     function createTeamMember() {
         inquirer
             .prompt([
@@ -111,11 +107,8 @@ function appBody() {
             })
 
 
-
-
     }
 
-    // ------------------------------------------------------------------------------------
     function createEanageer() {
 
         inquirer
@@ -177,13 +170,8 @@ function appBody() {
 
             })
 
-
-
-
-
     };
 
-    // ------------------------------------------------------------------------------------
     function createIntern() {
         inquirer
             .prompt([
@@ -237,18 +225,12 @@ function appBody() {
             ])
             .then(answers => {
                 const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
-                // console.log(intern);
                 teamMember.push(intern);
                 createTeamMember();
-
-
             })
-
-
 
     };
 
-    // ------------------------------------------------------------------------------------
     function generateHTML() {
         const cardToDisplay=[];
         for(let i=0; i<teamMember.length;i++){
@@ -271,7 +253,6 @@ function appBody() {
                         <li class="list-group-item text-white bg-dark mb-3 border border-white">Office Number
                             :<span>${teamMember[i].officeNumber}</span></li>
                     </ul>
-
 
                 </div>
             </div>
@@ -300,10 +281,8 @@ function appBody() {
                             :<span>${teamMember[i].GitHub}</span></li>
                     </ul>
         
-        
                 </div>
             </div>
-            
         
         </div>`
         cardToDisplay.push(engineerCard);
@@ -331,16 +310,12 @@ function appBody() {
                             </div>
                         </div>
 
-
                     </div>`;
                 cardToDisplay.push(internCard);
                 
-                
             }
-            
 
         }
-       
 
         const frameHtml=`<!DOCTYPE html>
         <html lang="en">
@@ -382,9 +357,6 @@ function appBody() {
                     <!-- end of container fluid -->
                 </div>
         
-        
-        
-        
             </div>
         
         </body>
@@ -392,13 +364,8 @@ function appBody() {
         </html>`
 
         fs.writeFile("./output/employee.html",frameHtml,function(err){
-            // console.log(err);
-
-
+            Console.log("ERROR :",err)
         })
-
-
-
 
     }
 
@@ -406,7 +373,6 @@ function appBody() {
 
 
 }
-
 
 appBody();
 
